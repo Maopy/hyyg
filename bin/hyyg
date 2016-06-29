@@ -1,0 +1,38 @@
+#!/usr/bin/env node
+
+require('shelljs/global')
+const program = require('commander')
+const tpl = require('tpl_apply')
+const Inflector = require('inflected')
+const chalk = require('chalk')
+
+const pkg = require('../package.json')
+
+program
+  .version(pkg.version)
+  .option('-m --model', 'generate a model')
+  .option('-c --controller', 'generate a controller')
+  .option('-e --es5', 'do not generate with es@next grammar')
+  .parse(process.argv)
+
+// let argv = process.argv
+
+if (!(ls('package.json')[0] === 'package.json')) {
+  console.log(chalk.red.bold('please use this command under root path'))
+} else {
+  let method = 'model'
+  if (program.controller) {
+    method = 'controller'
+  }
+  let source = `${__dirname}/../tpl/${method}.js`
+  let dest = `${process.cwd()}/src/server/${method}s/${program.args[0]}.js`
+
+  tpl.tpl_apply(source, {
+    className: Inflector.camelize(program.args[0]),
+    modelName: Inflector.camelize(program.args[0], false),
+    controllerName: Inflector.camelize(program.args[0], false)
+  }, dest)
+
+  console.log(dest)
+  console.log(chalk.yellow(`${Inflector.camelize(program.args[0], false)} ${method} created!`))
+}

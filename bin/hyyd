@@ -1,0 +1,11 @@
+#!/usr/bin/env node
+
+const program = require('commander')
+
+const pkg = require('../package.json')
+
+program
+  .version(pkg.version)
+  .option('-m --model', 'delete a model')
+  .option('-c --controller', 'delete a controller')
+  .parse(process.argv)
