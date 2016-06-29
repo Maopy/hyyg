@@ -1,7 +1,6 @@
 # hyyg
 A generator for Haoyayi
 
-[![gitter][gitter-image]][gitter-url]
 [![NPM version][npm-image]][npm-url]
 
 # Features
@@ -31,3 +30,6 @@ A generator for Haoyayi
 - 添加Controller时，通过参数添加Model
 - 添加日期，添加人
 - 添加前判断是否已存在
+
+[npm-image]: https://img.shields.io/npm/v/hyyg.svg?style=flat-square
+[npm-url]: https://npmjs.org/package/hyyg
