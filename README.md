@@ -2,6 +2,7 @@
 A generator for Haoyayi
 
 [![NPM version][npm-image]][npm-url]
+[![js-standard-style](standard-image)](standard-url)
 
 # Features
 
@@ -33,3 +34,5 @@ A generator for Haoyayi
 
 [npm-image]: https://img.shields.io/npm/v/hyyg.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/hyyg
+[standard-image]: https://img.shields.io/badge/code%20style-standard-brightgreen.svg
+[standard-url]: http://standardjs.com
