@@ -2,7 +2,7 @@
 A generator for Haoyayi
 
 [![NPM version][npm-image]][npm-url]
-[![js-standard-style](standard-image)](standard-url)
+[![js-standard-style][standard-image]][standard-url]
 
 # Features
 
