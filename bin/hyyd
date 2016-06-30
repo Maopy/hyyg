@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 
+require('shelljs/global')
 const program = require('commander')
+const chalk = require('chalk')
 
 const pkg = require('../package.json')
 
@@ -9,3 +11,18 @@ program
   .option('-m --model', 'delete a model')
   .option('-c --controller', 'delete a controller')
   .parse(process.argv)
+
+if (!(ls('package.json')[0] === 'package.json')) {
+  console.log(chalk.red.bold('please use this command under root path'))
+} else {
+  let method = 'model'
+  if (program.controller) {
+    method = 'controller'
+  }
+  let dest = `${process.cwd()}/src/server/${method}s/${program.args[0]}.js`
+
+  rm(dest)
+
+  console.log(dest)
+  console.log(chalk.red.bold(`${program.args[0]} ${method} drop`))
+}
